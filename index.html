@@ -38,7 +38,7 @@
     --shadow:0 20px 44px -20px rgba(0,0,0,0.65);
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;font-size:18px;}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;}
   h1,h2,h3{font-family:"Newsreader",serif;font-weight:600;letter-spacing:-0.01em;text-wrap:balance;margin:0;color:var(--ink);}
   p{margin:0;line-height:1.65;color:var(--ink-soft);max-width:60ch;}
@@ -94,6 +94,8 @@
 
   .areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;}
   .area-card{background:var(--card-bg);padding:26px 22px;display:flex;flex-direction:column;gap:12px;min-height:170px;}
+  .area-icon{width:44px;height:44px;border:1px solid var(--amber-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--amber-deep);flex-shrink:0;}
+  .area-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
   .area-card.featured{background:var(--graphite);}
   :root:not([data-theme="light"]) .area-card.featured{background:var(--paper-alt);}
   :root[data-theme="dark"] .area-card.featured{background:var(--paper-alt);}
@@ -126,7 +128,9 @@
   .hero-photo{width:100%;border-radius:4px;margin-bottom:18px;box-shadow:var(--shadow);position:relative;z-index:1;aspect-ratio:16/10;object-fit:cover;object-position:center 20%;}
 
   .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .test-card{background:var(--card-bg);border:1px solid var(--line);border-radius:4px;padding:24px;box-shadow:var(--shadow);}
+  .test-card{background:var(--card-bg);border:1px solid var(--line);border-radius:4px;padding:24px;box-shadow:var(--shadow);display:block;text-decoration:none;transition:transform 0.15s ease;}
+  .test-card:hover{transform:translateY(-2px);}
+  .test-card cite{color:var(--amber-deep);}
   .test-card .stars{margin-bottom:10px;display:block;}
   .test-card p{font-family:"Newsreader",serif;font-style:italic;font-size:1rem;color:var(--ink);}
   .test-author{display:flex;align-items:center;gap:10px;margin-top:16px;}
@@ -223,21 +227,25 @@
       </div>
       <div class="areas-grid">
         <div class="area-card featured">
+          <span class="area-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2.2"/><line x1="13" y1="10" x2="19" y2="10"/><line x1="13" y1="14" x2="17" y2="14"/></svg></span>
           <span class="area-tag">Especialidade</span>
           <h3>Recuperação de CNH</h3>
           <p>Defesa em processos de suspensão e cassação da Carteira Nacional de Habilitação junto ao DETRAN.</p>
         </div>
         <div class="area-card featured">
+          <span class="area-icon"><svg viewBox="0 0 24 24"><path d="M4 4h13l3 3v13H4z"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="12" y2="18"/></svg></span>
           <span class="area-tag">Especialidade</span>
           <h3>Recursos de multa</h3>
           <p>Recursos administrativos contra multas e pontuação indevida na carteira.</p>
         </div>
         <div class="area-card">
+          <span class="area-icon"><svg viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17.3" r="0.9" fill="currentColor" stroke="none"/></svg></span>
           <span class="area-tag">Trânsito</span>
           <h3>Acidentes e perícias</h3>
           <p>Defesa em acidentes de trânsito e questionamento de laudos e perícias.</p>
         </div>
         <div class="area-card">
+          <span class="area-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="3" x2="12" y2="21"/><line x1="5" y1="7" x2="19" y2="7"/><path d="M5 7 2 13a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/><path d="M8 21h8"/></svg></span>
           <span class="area-tag">Atuação institucional</span>
           <h3>OAB/SP — Comissão de Trânsito</h3>
           <p>Coordenador regional na Comissão Especial de Direito de Trânsito da OAB/SP e membro da ABATRAN.</p>
@@ -311,10 +319,11 @@
     <div class="wrap">
       <div class="section-head"><div><span class="eyebrow">O que dizem os clientes</span><h2>Avaliações no Google</h2></div></div>
       <div class="testimonials">
-        <div class="test-card"><span class="stars">★★★★★</span><p>"Ótimo atendimento Dr Sandro um ótimo profissional na área de trânsito."</p><div class="test-author"><span class="test-avatar">★</span><div><cite>Avaliação no Google</cite><small>Perfil verificado</small></div></div></div>
-        <div class="test-card"><span class="stars">★★★★★</span><p>"Sou cliente do escritório e super recomendo!"</p><div class="test-author"><span class="test-avatar">★</span><div><cite>Avaliação no Google</cite><small>Perfil verificado</small></div></div></div>
-        <div class="test-card"><span class="stars">★★★★★</span><p>"Educação de 1º mundo e profissionalismo excepcional…"</p><div class="test-author"><span class="test-avatar">★</span><div><cite>Avaliação no Google</cite><small>Perfil verificado</small></div></div></div>
+        <a class="test-card" href="https://www.google.com/maps/search/?api=1&query=Sandro+Costa+Advocacia+Rua+Professor+Jorge+Hennings+1050+Campinas" target="_blank" rel="noopener"><span class="stars">★★★★★</span><p>"Ótimo atendimento Dr Sandro um ótimo profissional na área de trânsito."</p><div class="test-author"><span class="test-avatar">G</span><div><cite>Ver perfil no Google ↗</cite><small>Avaliação verificada</small></div></div></a>
+        <a class="test-card" href="https://www.google.com/maps/search/?api=1&query=Sandro+Costa+Advocacia+Rua+Professor+Jorge+Hennings+1050+Campinas" target="_blank" rel="noopener"><span class="stars">★★★★★</span><p>"Sou cliente do escritório e super recomendo!"</p><div class="test-author"><span class="test-avatar">G</span><div><cite>Ver perfil no Google ↗</cite><small>Avaliação verificada</small></div></div></a>
+        <a class="test-card" href="https://www.google.com/maps/search/?api=1&query=Sandro+Costa+Advocacia+Rua+Professor+Jorge+Hennings+1050+Campinas" target="_blank" rel="noopener"><span class="stars">★★★★★</span><p>"Educação de 1º mundo e profissionalismo excepcional…"</p><div class="test-author"><span class="test-avatar">G</span><div><cite>Ver perfil no Google ↗</cite><small>Avaliação verificada</small></div></div></a>
       </div>
+      <p style="margin-top:22px;text-align:center;"><a href="https://www.google.com/maps/search/?api=1&query=Sandro+Costa+Advocacia+Rua+Professor+Jorge+Hennings+1050+Campinas" target="_blank" rel="noopener" style="color:var(--amber-deep);font-weight:600;text-decoration:none;">Ver todas as 66 avaliações no Google ↗</a></p>
     </div>
   </section>
 
@@ -331,6 +340,7 @@
           <div class="contact-item"><span class="k">✆</span><div><p>(19) 3381-4822</p><small>WhatsApp direto com o escritório</small></div></div>
           <div class="contact-item"><span class="k">✉</span><div><p><a href="mailto:contatosandrocostaadv@gmail.com" style="color:inherit;text-decoration:none;">contatosandrocostaadv@gmail.com</a></p><small>Para envio de documentos</small></div></div>
           <div class="contact-item"><span class="k">⌂</span><div><p>Rua Professor Jorge Hennings, 1050</p><small>Jardim Chapadão, Campinas/SP, 13070-142</small></div></div>
+          <div class="contact-item"><span class="k">◎</span><div><p><a href="https://instagram.com/sandrojosedacosta" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">@sandrojosedacosta</a></p><small>Veja casos e bastidores no Instagram</small></div></div>
         </div>
         <a class="btn btn-primary" style="margin-top:26px;" href="https://wa.me/551933814822" target="_blank" rel="noopener">Falar no WhatsApp</a>
       </div>
